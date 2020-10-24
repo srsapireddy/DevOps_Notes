@@ -1,0 +1,72 @@
+
+Tomact:
+-------
+ Q)what is tomcat ?
+   Tomat is aapplication server. it is a java based application. it provides a platform to the java applications.
+
+Q)difference between web and application server
+  
+   web server			application server 
+ apache 			apache-tomcat
+--------------------------------------------------  
+   80				   8080
+  httpd				tomcat
+/etc/httpd/conf/httpd.conf    /opt/apache-tomcat-xx/conf
+/var/www/html			/opt/apache-tomcat-xx/webapps
+.html/.php			.java
+
+Installation of tomcat:
+----------------------
+	1)rpm/yum
+	2)source code
+	3)customized method
+ we will install the tomcat 7
+
+steps to install the tomcat:
+---------------------------
+	1)download the tomcat 7 tar file
+ 	2)extract the tar file
+	3)set up the environment
+	4)start the tomcat
+
+Q)how to create a manager role and user?
+ cd /opt/pache-tomcat-xx/conf
+   vi tomcat-users.xml
+
+<role rolename="manager-gui"/>
+<user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+
+
+Q)install a one web application top of the tomcat?
+ 	1)download gitbucket.war
+	2)deploy 
+	    i)gui 
+		a)server method(vm)
+		b)client side(host)
+	   ii)direct method
+	  iii)via automation
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

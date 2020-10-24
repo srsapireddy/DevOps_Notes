@@ -1,0 +1,624 @@
+git introduction
+-----------------
+what is git?
+
+why git?
+
+how we use git?
+
+git is vcs(version control system) tool..
+
+scm/vcs
+-------
+  scm-->source code management
+  vcs-->version control system
+      To maintain a multuple versions of a file or directory..
+	
+website
+--------
+	index.html -->24-08-2017	v1
+     about home contact us
+     				 
+	index.html -->30-08-2017        v2
+       about home contact us login signup	
+
+ 	after some days
+     index.html 			v3
+     about home contact us(modified) login signup
+    	
+vcs tools
+---------
+svn/p4/clear case/git/bit keeper
+
+  free  			paid
+ svn/git	 		stash/p4/clear case/bit keeper
+
+why vcs?
+   To track different versions of a file or directory...
+who use this?
+  all programmers,developers,system admins,deveops engineers,etc...
+   
+use in which files?
+	all text based files..
+ 	like .java,.html,.php,.c,etc...
+where it cannot be used?
+ it cannot help to track images,videos & sound files...
+
+  history
+----------
+	  vcs started in yr 1972..
+1972     sccm (to track only one file)
+         rcs  (track multiple files but not track directories.. and allow one user only)
+         cvs  (track multiple files and directories.. and allow one user only)
+2000     svn  (track multiple files and directories.. and allow multiple users)
+2005     git  (by linus torvalds)
+
+  	svn					git
+-----------------------------------------------------------------
+-> server-client based			   every project is independent
+-> you always need net cnnection	   no need of continous net connection
+-> eat more disk space more burdain	   less disk space and less burdain
+-> centralized version control 		   distributed version control
+-> backup need take on server		   backup can be taken by any client
+
+
+ which platform it supports?
+  windows , linux , solaris, mac
+
+how to install git?
+   
+linux os
+--------
+	yum -y install git
+ 
+
+
+how to work with git?
+   mkdir <project dir>
+  
+   cd <project dir>
+   
+   git init -->it will initialize git and create empty structure under .git folder
+ 
+ 3 phases in git
+--------------- 
+  	1)working_dir
+	2)stage/cache
+	3)local_repo 
+
+configure your git to work correctly?
+ 3 types of configuration:
+	1)system
+  	  /etc/gitconfig
+            git config --system
+    	
+	2)user
+	 ~/.gitconfig (or) /home/ramu/.gitconfig
+ 	   git config --global
+	
+	3)project
+ 	 .git/config
+	   git config
+
+
+user level configaration
+------------------------
+  git config --global user.name "ramu"
+  git config --global user.email "ramu@mycompany.com"
+  git config --global core.editor "vim"
+  git config --global color.ui true
+
+To see config list
+------------------
+  git config --list
+
+
+git basic commands:
+------------------
+    vi index.html
+how can i check the status of a file?
+   git status
+  
+redcolor:this color will us these are untrackable files
+
+how to add a file to staging area?
+   git add <filename>
+
+ git add index.html
+ 
+greenclor:this color will tell us the files are in staging area
+
+how to add a file to local_repo area?
+
+  git commit -m "commit message"
+
+
+how can i see commit messages?
+ 	
+git log
+
+commit :97ee0928a45967554354136c142e95b104267c96
+
+author:
+
+date :
+   
+   "commit messgage"
+
+what is sha1 number?
+it is a random and unique 40 character hexa decimal value (0-9,a-f)
+
+how can we see the content of a commit ?
+  git show <97ee0928a45967554354136c142e95b104267c96>
+
+
+how can we see difference between 2 commits?
+ git diff <97ee0928a45967554354136c142e95b104267c96>..<b98ef0c23c439eb4cea83637abfc17c410727a74>
+commit 1			commit 2	  commit 3
+--------------------------------------------------------------------
+97ee092				b98ef0c2	   25f6abc
+index.html			index.html+f1      index.html+f1+extra/f2
+      (difference is f1 file content)     (difference is extra/f2 file content)
+
+
+
+git init
+git config --global 
+git add <filename>
+git commit -m "commit message"
+git status
+git log
+git diff <commit1 sha1>..<commit2 sha1>
+git show
+git log --oneline
+git log --since=2017-12-01
+git log --until=2017-08-30
+git log --author="ramu"
+git log --grep="pattern name"
+gitlog --oneline --author="ramu" --grep="f1"
+
+branches
+--------
+master			feature1 			feature2(another 
+                                                                    project)
+index.html+extra      index.html+extra+additional       +java ,php
+
+
+what is branch?
+  it is a series of commits along with the files/dir.
+
+
+master--->feature1
+
+what is the command it will use with branch?
+
+
+git branch
+	it shows all the current branches in alphabatical order
+
+ * master
+NOTE: (*) represents your currently in that branch
+
+how to create a branch?
+
+git branch <new br name>
+
+git branch feature
+
+how to jump to other branch?
+ 
+ git checkout <exiciting branch name>
+
+ git checkout feature
+
+
+create and checkout branch in one line?
+ 
+git checkout -b <nem br name>
+
+how can we see difference between two branches?
+master                   feature
+
+   git diff <branch1>..<branch2>
+
+ex:git diff master..feature
+
+  master				feature
+
+(index.html+t1+f1+f2+f3+f4)		(index.html+f1+f2+f3+f4+login+signup)
+
+
+what is merging?
+ Mixing of two branches is called merging.
+ we need to have two branches for merging
+ 
+  master(target)<-----feature(source)
+  
+  git merge feature 
+
+how to delete a branch?
+ git branch -d <branch name>
+ 
+ex:git branch -d feature
+
+ex:git branch -D feature
+
+note:your not in the feature branch to delete the feature branch
+merge conflict
+--------------
+   we face the merge conflict  when we merge the 2 branches. if automatic merge fails conflict id generated so manually see the conflict file and resolve it
+ 
+ to write content while merge conflict use
+   -> git commit -a 
+
+git branch
+git branch <new br name>
+git checkout <br name>
+git checkout -b <new br name>
+git diff <br1 name>..<br2 name>
+git merge <br name>
+git branch -d <br name>
+git branch -D <br name> 
+
+git rm & git mv
+---------------
+
+how to add and commmit a file(s)/dir(s) in a single step?
+
+
+git commit -am "<commit name>"
+
+NOTE:it's applicable for existing files..
+
+how to change commit message and add modified file?
+
+git commit --amend -m "<commit message>"  <pfile name>
+
+how to get back deleted file?
+
+rm <file>
+git checkout <file>
+
+
+how to delete a file permanently?
+
+git rm <file>
+
+how to rename iin git?
+git mv <file> <rename file>
+
+gitignore
+---------
+  to ignore the unneccery file in a project...
+
+java 			c 	
+
+
+.class			.obj
+.back
+
+system level
+------------
+
+ /etc/gitignore
+ 
+project level
+-------------
+   vi .gitignore
+	*.log 
+	*.obj
+	*.jpeg			ignore thses files
+	*.png
+	*.php
+	*.class
+!index.php
+[abc].html
+save and exit
+
+how to erase your history?
+	git reset --soft <sha1 number>  -->remove data from local_repo
+
+	git reset --mixed <sha1 number>  -->remove data from local_repo & cache area
+
+	git reset --hard <sha1 number>	 -->remove data from loca_repo ,cache area and working_dir also
+what is head?
+ head is a pointer which points to the top commit...
+ 
+ top commit
+ 25f5996   <--head 
+git stash
+---------
+what is stash?
+  stash is temporary area under git..
+
+why stash?
+  to store temporary files...
+
+how we use stash?
+  what are the conditions to store the files in to stash area
+   a)the files must and should in the cache/staging area
+
+
+what are the commands use to store the data in the stash?
+ ->git stash save <"message">
+
+how to see stash list?
+ ->git stash list 
+ stash@{0}: <branch name> <message>
+ 
+what are the commands use to copy the data into branches?
+ ->git stash apply <stash#> ->copy paste
+ ->git stash pop <stash#> -> cut paste
+how to delete the stash area?
+ ->git stash drop <stash#> -> delete the particular stash
+ ->git stash clear ->delete the entire stash list
+git server
+----------
+ 1)internet service (to connect to your server if it is out of your office)
+ 2)intranet service (To nnect to your server with in your office)
+
+
+ public 		private
+--------		--------
+git hub			git bucket , bit bucket     
+
+git bucket
+---------
+  it is a private git server.
+
+ pre-requisites
+----------------
+  java
+  sudo yum -y install java-1.8.0-openjdk
+
+how to download git bucket?
+  wget <url of git bucket>
+
+
+server side
+-----------
+how to  login to git bucket interface?
+ default
+    user     :root
+    password :root
+
+how to change user password?
+  
+ goto user profile and change password if you want
+ 
+how to create user ?
+ under administration create users
+
+client side
+-----------
+ setup remote in the client side
+ 
+ ->git remote add <alias name> <url>
+
+ ->git remote add origin http://192.168.43.139:8080/git/ramu/techadda.git
+
+
+how to see remote server name?
+ git remote
+ 
+ git remote -v (to see the url of remote)
+
+how to remove a remote server?
+ 
+ git remote rm <alias name>
+
+how to push the data into remote server?
+
+ ->git push -u <alias name> <branch name>
+ ->git push -u origin master
+
+
+master(local)------------->master(server)
+extra(local)--------------->extra(server)
+
+
+how to pull the data from the server?
+
+ method 1
+---------
+   fetch and merge
+   ->git fetch
+  
+   ->git merge origin/master
+
+method 2
+--------
+
+ ->git pull <alias name> <branch name>
+
+ ->git pull origin master
+
+clone
+-----
+  ->git clone http://192.168.43.139:8080/git/ramu/techadda.git
+   clone the server data to the local machine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
