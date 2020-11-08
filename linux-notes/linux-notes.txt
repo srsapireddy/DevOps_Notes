@@ -1,0 +1,379 @@
+Linux is a family of open source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991 by Linus Torvalds. Linux is typically packaged in a Linux distribution.
+
+Distributions include the Linux kernel and supporting system software and libraries, many of which are provided by the GNU Project. Many Linux distributions use the word "Linux" in their name, but the Free Software Foundation uses the name GNU/Linux to emphasize the importance of GNU software, causing some controversy.
+
+Popular Linux distributions include Debian, Fedora, and Ubuntu. Commercial distributions include Red Hat Enterprise Linux and SUSE Linux Enterprise Server. Desktop Linux distributions include a windowing system such as X11 or Wayland, and a desktop environment such as GNOME or KDE Plasma 5. Distributions intended for servers may omit graphics altogether, or include a solution stack such as LAMP. Because Linux is freely redistributable, anyone may create a distribution for any purpose.
+
+Q) What is Linux?
+ it is an opensource operating system.
+
+Q)what is operating system?
+ it is a interface between user & hardware. and it is a platform to run applications
+
+Q)why we need Linux?
+ - it is virusfree os.
+ - it is robust and stable.
+ - more secured
+  - open-source
+    - FOSS --- free and opensource
+
+money based:
+ proprietary  --) microsoft -) windows
+
+ non-proprietary   
+  opensource --) GNU, android
+   closed source ---) redhat, ubuntu  --- ) AMI ec2, IBM, sunsoloaris.
+Linux flavours:
+--------------
+debian  redhat/centos/fedora/mandriva/caldera (yum)
+ubuntu
+kubuntu
+xubuntu
+kali
+
+
+Virtualization:
+--------------
+- on top of single hardware run multiple machines. (or) multiple machines share single hardware.
+- 2 types of virtualization is their
+ - bare metal -) on top of hardware install hypervisor 
+ - hosts based -) on top of host machine install hypervisor
+- it will reduce the IT infrastructure cost and complex.
+- vm ware, oracle virtula box.
+- defaultly some laptops doesnot enable virtualization. so enable in BIOS settings.
+
+Hardware required:
+-----------------
+ - i3 processor minimum
+ - 4-8 GB RAM
+ - 50 GB free hard disk minimum
+- if your LAPTOP doesn't support virtualization use cloud computing like AWS, AZURE, GOOGLE CLOUD
+
+Pre-requisites TO install a Centos:
+-----------------------------------
+- download and install "virtual box" (as per your operating system)
+- download ISO image from official website.
+
+Install Centos:
+--------------
+- open virtualbox
+- click on "new"
+- give the name of the OS. and choose os flavor & version.
+- assign memory(RAM) size like 1024 MB (1GB)
+- here "create a virtual hard disk now"
+- specify disk file type as "VDI"
+- next memory "dynamically allocated"
+- specify hard disk size (eg: 8GB)
+- next load ISO file to that machine so, goto "settings" of new created item
+- then "storage" --) "controller: IDE" click on "empty",  then right side disk symbol shows. click on disk symbol
+- here you can specify the path of ISO image. next ok
+- then double click on "new machine item"
+
+Linux booting:
+-------------
+ It is a process to initiate a laptop or desktop with os.
+- when you press the power button then internally some process is going so, that is known as booting process.
+- booting process is follows some steps internally. below are the steps
+
+1 -- Bios -- basic input & output 
+ post (power on self test)
+ hardware ram,rom,cd-rom
+2 -- MBR  -- boot recorder
+3 -- GRUB -- grand united boot loader
+4 -- Kernal -- taker care of os into Ram
+5 -- INIT process
+ 0 halt
+ 1 single usermode
+ 2 multiuser
+ 3 full multiuser mode
+ 4 unused
+ 5 graphical mode
+ 6 reboot
+6 -- run level -- /etc/rc.d/rco.d or rc1.d
+ 
+1)BIOS:
+------
+- the first stage of booting process when you on/restart your machine the power is supplied to SMPS which converts AC to DC.
+- the DC power is supplied to all device connected to that machine such as processor, RAM, CD-ROM, mouse, keyboard, etc..
+- The most intelligent device in computer is processor(CPU).
+- when power supplied it will start running it's sequence of instructions stored in the memory.
+- The instruction it will run is to pass control to BIOS
+- in BIOS 2 operations are going
+ a)POST (power on self test)
+ b)selecting first boot device
+- post is process of checking H/W availability.
+- BIOS will have list of all devices.
+- In post process it will send an electric pulse to each and every device.
+- if an electric pulse is returned from that device it conclude the h/w working fine and ready for use it.
+- if it does not receive signal from that device. it will treat that device is not working.
+
+2)MBR:
+-----
+- The MBR is the first sector of the computer hard drive that tells the computer how to load the operating system, how the hard drive is partitioned.
+- A master boot record (MBR) is the 512-byte boot sector that is the first sector of a partitioned data storage device of a hard disk.
+
+3)GRUB:
+------
+- It is a multi boot loader package. that supports multiple operating systems on a computer. During boot-up, the user can select the operating system to run. if you are not specified it loads the default kernel.
+ 
+4)KERNEL:
+--------
+- kernel is the core part of the operating system. once control is given to kernel which is the control part of all your OS & act as a mediator between h/w &   s/w. 
+- kernel once loaded into RAM it always resides on RAM until the machine is shutdown.
+- once the kernel start it's operates the first thing it do is executing INIT Process. 
+
+5)INIT:
+------
+- after OS started initial process is starting. it is parent process of the all processes in Os.
+- in "/etc/inittab" in this config file we have the default initialize process is their.
+- It is the first process to start when a computer boots up, and it runs until the system shuts down
+ 0 halt
+ 1 single usermode
+ 2 multiuser
+ 3 full multiuser mode
+ 4 unused
+ 5 graphical mode
+ 6 reboot
+ 
+6)RUN LEVEL:
+------------
+- when the linux system is bootup, you might see various services getting started.
+- those are run level programs, executed from run level directory as defined by your runlevel
+- depending on your INIT level settings, the system executed the program from one of the following directions.
+
+Runlevel 0- /etc/rc.d/rc0.d/ 
+  1- /etc/rc.d/rc1.d/ 
+  2- /etc/rc.d/rc3.d/ 
+  3- /etc/rc.d/rc3.d/ 
+  4- /etc/rc.d/rc4.d/ 
+  5- /etc/rc.d/rc5.d/
+  6- /etc/rc.d/rc6.d/
+
+Putty:
+-----
+- it is interface tool to connect with the linux or unix remote servers with ssh.
+- PuTTY is a very versatile tool for remote access to another computer. 
+- It's used more often by people who want secure remote shell access to a UNIX or Linux system.
+
+git bash:
+--------
+- with this also we connect to the remote servers. 
+ ssh root@(ip)
+
+Linux File structure:
+---------------------
+- file structure represents the flow of the Operating System.
+- means what is the operations going on with particular Directory or Drive.
+
+/ -)root it is parent directory of all directory.
+/root -)root user home directory
+/bin -)binary information store here
+/sbin -)system binary information
+/boot -)booting directory
+/dev -)devices such as hard disk information here
+/etc -)all configuration stored here
+/mnt -)all mounting information
+/opt -)for 3rd party user applications 
+/proc -)process information store here
+/sys -)system information 
+/src -)service related information.
+/var -)variable directory
+/usr -)user applications store here
+/media -)media related like pendirives & cd-rom
+/tmp -)temporary directory
+/home -)users home directory
+
+/ :
+---
+- it is parent directory of all directories in Linux.
+
+/root:
+------
+- it is root(super user) user home directory.
+- he is admin
+
+/bin:
+-----
+- contain all binary files. these are executable files.
+- this files doesn't reflect the system.
+ eg: ls (list of files/dirs)
+
+/sbin:
+------
+- contain executable files which will effect the system 
+ eg: useradd (adding user)
+
+/boot:
+------
+- contain booting related information
+
+dev:
+----
+- contain device related information. like hard disks & disk partitions
+
+/etc:
+-----
+- all configuration files of applications stored here.
+
+/mnt:
+-----
+- mounting points information stored here
+
+/opt:
+-----
+- it is a optional directory 
+- user can store 3rd party application here.
+ eg: maven, tomcat
+
+/proc:
+------
+- it contains process information of computer. foreground & background process like shutdown, etc...
+
+/src:
+-----
+- service related information like kernel service.
+ eg: kernel
+
+/sys:
+-----
+- system information like processor, Ram, Hdd.
+
+/var:
+-----
+- it is variable directory.
+- stores cronjob, logs, mails
+
+/usr:
+-----
+- users applications store here
+ eg: jenkins (yum -y install jenkins)
+- it has /usr/bin & /usr/sbin directories.
+
+/media:
+-------
+- media related like pendirives & cd-rom.
+
+/home:
+------
+- normal users home directory
+
+/tmp:
+-----
+- it is temporary directory
+- stores temporary information.
+
+linux is an opensource operating system. it has both text and graphical based operating system. Mostly we communicate with commands only below are the basic commands in linux 
+
+pwd -- present working directory
+cd --- change directory
+ls --- list
+ls - l (long list)
+ls -r (list in reverse)
+ls -a (all files include hidden)
+ls -h (shows in KB, MB size of file)
+mkdir -- to create a directory
+rmdir -- to remove a  directory (directory must be empty)
+touch -- for file creation
+rm -- to remove a file
+rm -f --) to remove forcefully
+rm -r --) to remove directory
+rm -v --) verbose mode for acknowledgment
+cp (source) (destination) --) for copy a file
+cp -r (source) (destination) --) for copy a directory
+cp -f --) forcefully copy
+cp -v --) verbose mode for acknowledgement
+mv (source) (destination) --) move from one place to another place (or) rename purpose
+echo ----) display variables data on screen
+cat --- for printing data on screen and take data from keyboard to file
+ cat file (to see content on screen)
+|(pipe) -- o/p of 1st command to the i/p of 2nd command
+history -- to see previous commands (shows 10 lines only)
+less -- less same as cat but it will show data page by page. it divides page into 24 lines.
+ f --) for forward
+ b --) for back-word
+ / --) search
+ q --) for quit
+more ---) same as less
+wc --) word count (number of lines, words, characters)
+whoami --) shows who is login
+id --) shows the details of user and his existence
+uname -a --) it gives entire system information
+head -- shows top 
+tail -- shows bottom
+
+Linux Shell:
+------------
+- in os there is a special program is called "shell".
+- shell is interpretor
+- shell takes the commands from user and execute it.
+- and it will gives the result as user understandable.
+
+Types of Shell:
+---------------
+- bash shell
+- C shell
+- K shell
+- T shell
+
+NOTE: each shell does the same task in different way, syntax and functionality is different.
+----
+- default shell in Linux is BASH.
+
+Q)TO check the available shells in your system
+ cat /etc/shells
+
+Q)TO find your current shell?
+ echo $SHELL
+
+pwd -- present working directory
+cd --- change directory
+ls --- list
+ls - l (long list)
+ls -r (list in reverse)
+ls -a (all files include hidden)
+ls -h (shows in KB, MB size of file)
+mkdir -- to create a directory
+rmdir -- to remove a  directory (directory must be empty)
+touch -- for file creation
+rm -- to remove a file
+rm -f --) to remove forcefully
+rm -r --) to remove directory
+rm -v --) verbose mode for acknowledgment
+cp (source) (destination) --) for copy a file
+cp -r (source) (destination) --) for copy a directory
+cp -f --) forcefully copy
+cp -v --) verbose mode for acknowledgement
+mv (source) (destination) --) move from one place to another place (or) rename purpose
+echo ----) display variables data on screen
+cat --- for printing data on screen and take data from keyboard to file
+ cat file (to see content on screen)
+|(pipe) -- o/p of 1st command to the i/p of 2nd command
+history -- to see previous commands (shows 10 lines only)
+less -- less same as cat but it will show data page by page. it divides page into 24 lines.
+ f --) for forward
+ b --) for back-word
+ / --) search
+ q --) for quit
+more ---) same as less
+wc --) word count (number of lines, words, characters)
+whoami --) shows who is login
+id --) shows the details of user and his existence
+uname -a --) it gives entire system information
+head -- shows top 10 lines
+tail -- shows bottom 10 lines
+
+Linux Environment Variables:
+----------------------------
+- echo $DISPLAY
+- echo $EDITOR
+- echo $SHELL
+- echo $USER
+- echo $HOME
+- echo $IFS
+- echo $GROUP
+- echo $HOSTNAME
+- echo $LOGNAME
+- echo $PS1 --) which contains the value of the default prompt username, hostname, working dir
+- echo $PS2 --) is the secondary prompt displayed when a command needs more input (e.g. a multi-line command).
+- echo $TERM
+- echo $PATH
